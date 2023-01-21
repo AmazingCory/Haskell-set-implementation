@@ -1,17 +1,16 @@
--- 1) you may change this to your own data type
+-- 1) Create data type
 data Colour = Red | Black
     deriving (Show)
 
 data Set a = Empty | Node Colour (Set a) a (Set a)
     deriving (Show)
 
--- 2) toList {2,1,4,3} => [1,2,3,4]
--- the output must be sorted.
+-- 2) toList
 toList :: Set a -> [a]
 toList xs = setfoldr (:) xs []
 
 
--- 3) fromList [2,1,1,4,5] => {2,1,4,5}
+-- 3) fromList
 fromList :: Ord a => [a] -> Set a
 fromList xs = foldr insert empty xs
 
@@ -25,7 +24,7 @@ empty :: Set a
 empty = Empty
 
 
--- 6) Set with one element
+-- 6) set with one element
 singleton :: a -> Set a
 singleton x = Node Black Empty x Empty
 
@@ -89,7 +88,7 @@ member x (Node _ left num right)
       
 
 
--- 12) how many elements are there in the Set?
+-- 12) number of elements in the set
 cardinality :: Set a -> Int
 cardinality xs = setfoldr count xs 0
    where
