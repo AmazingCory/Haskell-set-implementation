@@ -1,3 +1,3 @@
 # Haskell-set-implementation
 
-Project finished in Dec 2022.
+Project ended in Dec 2022.
